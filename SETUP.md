@@ -27,6 +27,18 @@ python3 -m http.server 8080
 # luego abre http://localhost:8080
 ```
 
+### 🌐 Sitio bilingüe (ES / EN)
+
+El sitio es **bilingüe** y funciona así:
+
+- **Detección automática:** usa el idioma del navegador del visitante en la primera visita.
+- **Modal de bienvenida:** la primera vez pregunta si prefiere Español o English.
+- **Selector ES/EN:** un interruptor en la barra de navegación cambia el idioma al instante (sin recargar).
+- **Memoria:** guarda la preferencia en el navegador (localStorage).
+
+Los textos viven en el diccionario `I18N` dentro de `index.js`. Para editar un texto,
+busca su clave (por ejemplo `hero.desc`) y edítala en `es` y en `en`.
+
 ---
 
 ## 1. Publicar el README de tu perfil

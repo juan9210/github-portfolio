@@ -26,8 +26,12 @@
     <img src="https://img.shields.io/badge/🌐%20Ver%20portafolio%20web-en%20vivo-00B4D8?style=for-the-badge" alt="Live site" />
   </a>
   <br/>
-  <sub>Sitio construido con HTML · CSS · JavaScript · Publicado con GitHub Pages</sub>
+  <sub>🌐 Sitio bilingüe (ES / EN) · HTML · CSS · JavaScript · Publicado con GitHub Pages</sub>
 </div>
+
+> 🌍 **Bilingüe:** el sitio web detecta el idioma del navegador y muestra un selector
+> **ES / EN** en la barra de navegación. La primera visita ofrece elegir idioma y la
+> preferencia se recuerda. · *The website auto-detects the browser language and offers an ES/EN switch.*
 
 ---
 

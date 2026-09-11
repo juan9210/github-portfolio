@@ -1,11 +1,31 @@
 # 🛠️ Guía de configuración del portafolio
 
-Este repositorio contiene dos README:
+Este repositorio contiene **un sitio web** y dos README:
 
 | Archivo | Dónde va | Para qué sirve |
 | --- | --- | --- |
+| `index.html` / `index.css` / `index.js` | Este repo | **Sitio web** de portafolio (GitHub Pages) |
 | `README.md` | Este repo (`juan9210/github-portfolio`) | Portafolio detallado que enlazas en tu CV o LinkedIn |
 | `PROFILE_README.md` | Repo especial `juan9210/juan9210` | Se muestra en tu **página de perfil** (github.com/juan9210) |
+
+---
+
+## 0. Publicar el SITIO WEB con GitHub Pages 🌐
+
+1. Ve al repo en GitHub: **Settings → Pages**.
+2. En **Source**, elige **Deploy from a branch**.
+3. Branch: `main` · Folder: `/ (root)` · guarda.
+4. Espera 1–2 minutos. Tu sitio quedará en:
+   **https://juan9210.github.io/github-portfolio/**
+
+Para verlo en local antes de publicar, abre `index.html` en el navegador,
+o levanta un servidor simple:
+
+```bash
+# Python
+python3 -m http.server 8080
+# luego abre http://localhost:8080
+```
 
 ---
 

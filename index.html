@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0f1e" />
+
+  <!-- SEO -->
+  <title>Juan Carlos Cárdenas | Cloud &amp; Security Leader · DevSecOps · SRE</title>
+  <meta name="description" content="Líder en Cloud, DevSecOps y Ciberseguridad para entornos regulados del sector salud. Más de 7 años en AWS, Azure, Kubernetes, ISO 27001 y HIPAA." />
+  <meta name="keywords" content="Juan Carlos Cardenas, Cloud, DevSecOps, SRE, Ciberseguridad, AWS, Azure, Kubernetes, ISO 27001, HIPAA, Bogota" />
+  <meta name="author" content="Juan Carlos Cárdenas Padilla" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Juan Carlos Cárdenas | Cloud &amp; Security Leader" />
+  <meta property="og:description" content="Cloud · DevSecOps · SRE · Healthcare IT. Multicloud, ISO 27001, HIPAA." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <!-- ===================== PROGRESS BAR ===================== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="header" id="top">
+    <nav class="nav container" role="navigation" aria-label="Principal">
+      <a href="#top" class="nav__logo">JC<span>.</span></a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__list" id="navList">
+        <li><a href="#about" class="nav__link">Sobre mí</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#experience" class="nav__link">Experiencia</a></li>
+        <li><a href="#education" class="nav__link">Formación</a></li>
+        <li><a href="#certs" class="nav__link">Certificaciones</a></li>
+        <li><a href="#contact" class="nav__link nav__link--cta">Contacto</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow reveal">👋 Hola, soy</p>
+        <h1 class="hero__title reveal">Juan Carlos Cárdenas</h1>
+        <h2 class="hero__typed reveal">
+          <span id="typed"></span><span class="cursor">|</span>
+        </h2>
+        <p class="hero__desc reveal">
+          Líder técnico en <strong>Cloud, DevSecOps y Ciberseguridad</strong> para entornos
+          críticos regulados del sector salud. Más de <strong>7 años</strong> diseñando
+          plataformas multicloud seguras, escalables y auditables.
+        </p>
+
+        <div class="hero__badges reveal">
+          <span class="pill">🏆 AWS Certified</span>
+          <span class="pill">🛡️ ISO 27001:2022</span>
+          <span class="pill">🏥 HIPAA</span>
+          <span class="pill">⚙️ ITIL v4</span>
+        </div>
+
+        <div class="hero__cta reveal">
+          <a href="#contact" class="btn btn--primary">Contáctame</a>
+          <a href="#experience" class="btn btn--ghost">Ver experiencia</a>
+        </div>
+
+        <div class="hero__social reveal">
+          <!-- TODO: cambia por tu LinkedIn real -->
+          <a href="https://www.linkedin.com/in/TU-USUARIO-LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://github.com/juan9210" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Bajar">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===================== STATS ===================== -->
+    <section class="stats container">
+      <div class="stat-card reveal">
+        <span class="stat-card__num" data-target="70" data-suffix="%" data-prefix="−">0</span>
+        <span class="stat-card__label">Incidentes de seguridad</span>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__num" data-target="45" data-suffix="%" data-prefix="−">0</span>
+        <span class="stat-card__label">Tiempo de resolución</span>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__num" data-target="40" data-suffix="%" data-prefix="−">0</span>
+        <span class="stat-card__label">Costos de infraestructura</span>
+      </div>
+      <div class="stat-card reveal">
+        <span class="stat-card__num" data-target="0" data-suffix="">0</span>
+        <span class="stat-card__label">Hallazgos críticos (ISO/HIPAA)</span>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section container" id="about">
+      <h2 class="section__title reveal"><span class="section__index">01.</span> Sobre mí</h2>
+      <div class="about">
+        <div class="about__text reveal">
+          <p>
+            Soy <strong>Ingeniero de Sistemas</strong> con Especialización en Seguridad de la
+            Información (mención de honor) y actualmente cursando una
+            <strong>Maestría en Seguridad de la Información</strong>.
+          </p>
+          <p>
+            Mi trayectoria ha sido progresiva: desde Soporte Técnico hasta el
+            <strong>Liderazgo estratégico</strong> de nube y ciberseguridad, gestionando
+            plataformas multicloud (AWS, Azure, DigitalOcean, Oracle) con prácticas
+            <strong>DevSecOps</strong>, <strong>SRE</strong> y observabilidad end-to-end.
+          </p>
+          <p>
+            Me especializo en entornos altamente regulados —
+            <strong>ISO 27001, HIPAA, NIST, FDA 21 CFR Part 11, GxP/GAMP 5</strong> — donde la
+            seguridad, la trazabilidad y el cumplimiento no son opcionales.
+          </p>
+          <ul class="about__facts">
+            <li>📍 Bogotá, Colombia</li>
+            <li>🗣️ Español (nativo) · Inglés (B2 → C1)</li>
+            <li>🎯 Orientado a resultados medibles y reducción de riesgos</li>
+          </ul>
+        </div>
+        <div class="about__card reveal">
+          <div class="code-window">
+            <div class="code-window__bar">
+              <span></span><span></span><span></span>
+              <em>profile.yaml</em>
+            </div>
+            <pre><code><span class="k">role</span>:        Cloud &amp; Security Leader
+<span class="k">focus</span>:       DevSecOps · SRE · Healthcare IT
+<span class="k">experience</span>:  7+ años
+<span class="k">clouds</span>:      [AWS, Azure, DO, Oracle]
+<span class="k">compliance</span>:  [ISO27001, HIPAA, NIST]
+<span class="k">learning</span>:    [CKA, AWS SAA, CEH]
+<span class="k">audits</span>:      0 hallazgos críticos ✅</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section container" id="skills">
+      <h2 class="section__title reveal"><span class="section__index">02.</span> Competencias &amp; Stack</h2>
+
+      <div class="skills-grid">
+        <article class="skill-block reveal">
+          <h3>☁️ Cloud &amp; Plataforma</h3>
+          <div class="chips">
+            <span>AWS</span><span>Azure</span><span>DigitalOcean</span><span>Oracle Cloud</span>
+            <span>Alta disponibilidad</span><span>Autoscaling</span><span>Cost optimization</span>
+          </div>
+        </article>
+
+        <article class="skill-block reveal">
+          <h3>🔁 DevSecOps &amp; Automatización</h3>
+          <div class="chips">
+            <span>GitHub Actions</span><span>Jenkins</span><span>Bitbucket</span>
+            <span>Docker</span><span>Kubernetes (EKS)</span>
+            <span>Terraform</span><span>CloudFormation</span><span>Ansible</span>
+          </div>
+        </article>
+
+        <article class="skill-block reveal">
+          <h3>🛡️ Ciberseguridad &amp; Cumplimiento</h3>
+          <div class="chips">
+            <span>ISO/IEC 27001:2022</span><span>HIPAA</span><span>NIST</span>
+            <span>FDA 21 CFR Part 11</span><span>GxP / GAMP 5</span>
+            <span>Pentesting</span><span>OWASP Top 10</span><span>Hardening</span>
+            <span>Incident Response</span>
+          </div>
+        </article>
+
+        <article class="skill-block reveal">
+          <h3>📊 Observabilidad &amp; Sistemas</h3>
+          <div class="chips">
+            <span>Grafana</span><span>Prometheus</span><span>Loki</span><span>ELK Stack</span>
+            <span>Linux (experto)</span><span>Windows</span><span>Bash</span><span>ITSM</span>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="skills-bars__title reveal">Nivel de dominio</h3>
+      <div class="skills-bars">
+        <div class="bar reveal" data-level="95"><span class="bar__label">Cloud (AWS/Azure) <b>95%</b></span><div class="bar__track"><i></i></div></div>
+        <div class="bar reveal" data-level="92"><span class="bar__label">Ciberseguridad &amp; Compliance <b>92%</b></span><div class="bar__track"><i></i></div></div>
+        <div class="bar reveal" data-level="90"><span class="bar__label">DevSecOps / CI-CD <b>90%</b></span><div class="bar__track"><i></i></div></div>
+        <div class="bar reveal" data-level="88"><span class="bar__label">Kubernetes &amp; Contenedores <b>88%</b></span><div class="bar__track"><i></i></div></div>
+        <div class="bar reveal" data-level="93"><span class="bar__label">Linux &amp; Automatización <b>93%</b></span><div class="bar__track"><i></i></div></div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section container" id="experience">
+      <h2 class="section__title reveal"><span class="section__index">03.</span> Experiencia profesional</h2>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">oct 2024 – Actualidad</span>
+            <h3>Líder de Nube y Ciberseguridad</h3>
+            <span class="tl-company">Integra IT S.A.S — Bogotá</span>
+            <ul>
+              <li>Dirección de estrategia cloud, DevSecOps y ciberseguridad para plataformas críticas del sector salud.</li>
+              <li>Arquitecturas multicloud seguras (AWS, Azure, DigitalOcean) optimizadas en costo y disponibilidad.</li>
+              <li>Gobierno de IaC (Terraform, CloudFormation) en entornos validados y auditables.</li>
+              <li>Auditorías ISO 27001 e HIPAA superadas <strong>sin hallazgos críticos</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">may 2023 – oct 2024</span>
+            <h3>Líder de Infraestructura y Seguridad de la Información</h3>
+            <span class="tl-company">Integra IT S.A.S</span>
+            <ul>
+              <li>Transformación a modelo cloud-first y DevSecOps.</li>
+              <li>Hardening, gestión de vulnerabilidades y respuesta a incidentes en producción.</li>
+              <li>Estandarización de sistemas Linux y Windows con alta disponibilidad.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">dic 2023 – jul 2025</span>
+            <h3>Cloud Engineer / Consultor de Seguridad</h3>
+            <span class="tl-company">Imaging Experts and Healthcare Services S.A.S</span>
+            <ul>
+              <li>Entornos cloud para plataformas de imágenes médicas.</li>
+              <li>Liderazgo técnico en la certificación ISO/IEC 27001:2022.</li>
+              <li>CI/CD con Kubernetes y Jenkins: <strong>−40% costos</strong> y <strong>−40% fallos</strong> en producción.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">jul 2022 – may 2023</span>
+            <h3>Ingeniero de Soporte / DevOps</h3>
+            <span class="tl-company">Integra IT S.A.S</span>
+            <ul>
+              <li>Administración avanzada de Linux y Windows en entornos clínicos.</li>
+              <li>Automatización con Bash, Ansible y pipelines CI/CD.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">sep 2019 – jul 2021</span>
+            <h3>Soporte Técnico IT</h3>
+            <span class="tl-company">Selcomp Ingeniería S.A.S</span>
+            <ul>
+              <li>Soporte IT con gestión de incidentes vía ITSM Aranda y SQL básico.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-date">nov 2016 – feb 2019</span>
+            <h3>Técnico en Sistemas — Redes &amp; Telecomunicaciones</h3>
+            <span class="tl-company">RP Soluciones Tecnológicas S.A.S</span>
+            <ul>
+              <li>Redes en entornos Oil &amp; Gas: Cisco, Radwin, Cambium, Ubiquiti.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="section container" id="education">
+      <h2 class="section__title reveal"><span class="section__index">04.</span> Formación académica</h2>
+      <div class="edu-grid">
+        <article class="edu-card reveal">
+          <span class="edu-year">2026 – Actualmente</span>
+          <h3>Maestría en Seguridad de la Información</h3>
+          <p>Fundación Universitaria Los Libertadores</p>
+        </article>
+        <article class="edu-card reveal">
+          <span class="edu-year">2024</span>
+          <h3>Especialización en Seguridad de la Información</h3>
+          <p>Los Libertadores · <em>Mención de honor: Análisis de amenazas en entornos clínicos</em></p>
+        </article>
+        <article class="edu-card reveal">
+          <span class="edu-year">2023</span>
+          <h3>Ingeniería de Sistemas</h3>
+          <p>Corporación Unificada Nacional (CUN)</p>
+        </article>
+        <article class="edu-card reveal">
+          <span class="edu-year">2014</span>
+          <h3>Tecnólogo en Gestión de Redes de Datos</h3>
+          <p>SENA</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== CERTS ===================== -->
+    <section class="section container" id="certs">
+      <h2 class="section__title reveal"><span class="section__index">05.</span> Certificaciones</h2>
+      <div class="cert-grid">
+        <div class="cert reveal"><span class="cert__ico">🏅</span> AWS Certified Cloud Practitioner</div>
+        <div class="cert reveal"><span class="cert__ico">⚙️</span> ITIL Foundation v4</div>
+        <div class="cert reveal"><span class="cert__ico">🌐</span> Cisco CCNA 1 &amp; 2</div>
+        <div class="cert reveal"><span class="cert__ico">🔄</span> Scrum Foundation &amp; Scrum Master — CertiProf</div>
+      </div>
+
+      <h3 class="cert-progress__title reveal">En proceso 🚀</h3>
+      <div class="cert-grid cert-grid--progress">
+        <div class="cert cert--wip reveal"><span class="cert__ico">☁️</span> AWS Solutions Architect Associate</div>
+        <div class="cert cert--wip reveal"><span class="cert__ico">⛵</span> CKA — Kubernetes Administrator</div>
+        <div class="cert cert--wip reveal"><span class="cert__ico">🛡️</span> AWS Security Specialty</div>
+        <div class="cert cert--wip reveal"><span class="cert__ico">🎯</span> CEH — Certified Ethical Hacker</div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section container section--contact" id="contact">
+      <h2 class="section__title reveal"><span class="section__index">06.</span> Contacto</h2>
+      <p class="contact__lead reveal">
+        ¿Buscas liderazgo en cloud y seguridad para entornos críticos? Conectemos.
+      </p>
+      <!-- PRIVACIDAD: sitio público. Sin teléfono ni correo personal. Contacto vía LinkedIn. -->
+      <div class="contact__actions reveal">
+        <!-- TODO: cambia por tu LinkedIn real -->
+        <a href="https://www.linkedin.com/in/TU-USUARIO-LINKEDIN" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+          Conectar en LinkedIn
+        </a>
+        <a href="https://github.com/juan9210" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">
+          Ver mi GitHub
+        </a>
+      </div>
+      <p class="contact__note reveal">🔒 Por privacidad no se publican teléfono ni correo personal en este sitio.</p>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Juan Carlos Cárdenas Padilla</span>
+      <span>Diseñado &amp; construido con HTML · CSS · JS</span>
+    </div>
+  </footer>
+
+  <a href="#top" class="to-top" id="toTop" aria-label="Volver arriba">↑</a>
+
+  <script src="index.js"></script>
+</body>
+</html>

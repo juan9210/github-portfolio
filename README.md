@@ -19,6 +19,16 @@
   <img src="https://img.shields.io/badge/Idiomas-ES%20nativo%20%C2%B7%20EN%20B2%E2%86%92C1-blueviolet" />
 </div>
 
+<!-- ===================== SITIO WEB ===================== -->
+<div align="center">
+  <br/>
+  <a href="https://juan9210.github.io/github-portfolio/">
+    <img src="https://img.shields.io/badge/🌐%20Ver%20portafolio%20web-en%20vivo-00B4D8?style=for-the-badge" alt="Live site" />
+  </a>
+  <br/>
+  <sub>Sitio construido con HTML · CSS · JavaScript · Publicado con GitHub Pages</sub>
+</div>
+
 ---
 
 ## 👋 Sobre mí

@@ -61,6 +61,27 @@
       </div>
 
       <div class="container hero__content">
+        <!-- ===================== FOTO DE PERFIL ===================== -->
+        <!--
+          Para poner TU foto:
+          1. Guarda tu imagen en la carpeta assets/ con el nombre  profile.jpg
+             (recomendado: cuadrada, mínimo 400x400px, formato .jpg o .png)
+          2. Cambia el src de abajo por  assets/profile.jpg
+          3. Elimina el atributo onerror y el placeholder si quieres.
+          Mientras no haya foto, se muestra un avatar con tus iniciales.
+        -->
+        <div class="hero__avatar reveal">
+          <div class="hero__avatar-ring"></div>
+          <img
+            src="assets/profile.jpg"
+            alt="Foto de Juan Carlos Cárdenas"
+            class="hero__avatar-img"
+            style="display:none;"
+            onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+          />
+          <div class="hero__avatar-fallback">JC</div>
+        </div>
+
         <p class="hero__eyebrow reveal">👋 Hola, soy</p>
         <h1 class="hero__title reveal">Juan Carlos Cárdenas</h1>
         <h2 class="hero__typed reveal">
@@ -85,8 +106,7 @@
         </div>
 
         <div class="hero__social reveal">
-          <!-- TODO: cambia por tu LinkedIn real -->
-          <a href="https://www.linkedin.com/in/TU-USUARIO-LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://www.linkedin.com/in/juan-carlos-cardenas-539b7b216/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
           <a href="https://github.com/juan9210" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
         </div>
       </div>
@@ -197,7 +217,7 @@
           <h3>📊 Observabilidad &amp; Sistemas</h3>
           <div class="chips">
             <span>Grafana</span><span>Prometheus</span><span>Loki</span><span>ELK Stack</span>
-            <span>Linux (experto)</span><span>Windows</span><span>Bash</span><span>ITSM</span>
+            <span>Linux (experto)</span><span>Windows</span><span>macOS</span><span>Bash</span><span>ITSM</span>
           </div>
         </article>
       </div>
@@ -353,8 +373,7 @@
       </p>
       <!-- PRIVACIDAD: sitio público. Sin teléfono ni correo personal. Contacto vía LinkedIn. -->
       <div class="contact__actions reveal">
-        <!-- TODO: cambia por tu LinkedIn real -->
-        <a href="https://www.linkedin.com/in/TU-USUARIO-LINKEDIN" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
+        <a href="https://www.linkedin.com/in/juan-carlos-cardenas-539b7b216/" target="_blank" rel="noopener" class="btn btn--primary btn--lg">
           Conectar en LinkedIn
         </a>
         <a href="https://github.com/juan9210" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">

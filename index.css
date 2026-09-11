@@ -102,6 +102,30 @@ strong { color: var(--text); font-weight: 700; }
 @keyframes float { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-40px) } }
 
 .hero__content { position: relative; z-index: 1; padding: 4rem 0; }
+
+/* profile photo */
+.hero__avatar { position: relative; width: 150px; height: 150px; margin-bottom: 1.6rem; }
+.hero__avatar-ring {
+  position: absolute; inset: -6px; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--primary), var(--accent), var(--primary));
+  animation: spin 6s linear infinite;
+  filter: blur(1px);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.hero__avatar-img,
+.hero__avatar-fallback {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border-radius: 50%; object-fit: cover;
+  border: 4px solid var(--bg);
+  box-shadow: var(--shadow);
+}
+.hero__avatar-fallback {
+  display: grid; place-items: center;
+  font-family: var(--fira); font-weight: 700; font-size: 3rem;
+  color: #fff; background: linear-gradient(135deg, var(--primary-2), var(--accent));
+}
+.hero__avatar:hover .hero__avatar-ring { animation-duration: 2.5s; }
+
 .hero__eyebrow { color: var(--primary); font-family: var(--fira); margin-bottom: .6rem; }
 .hero__title { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; line-height: 1.05; letter-spacing: -1px; }
 .hero__typed { font-family: var(--fira); font-size: clamp(1.1rem, 3vw, 1.7rem); color: var(--text-dim); margin: .6rem 0 1.2rem; min-height: 2.2rem; }

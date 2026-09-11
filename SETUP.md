@@ -84,9 +84,27 @@ serpiente del `PROFILE_README.md`.
 
 ---
 
-## 3. Personalización pendiente (TODO)
+## 4. Subir tu FOTO de perfil 📸
 
-- 🔗 Reemplaza `TU-USUARIO-LINKEDIN` con tu URL real de LinkedIn en `README.md` y `PROFILE_README.md`.
+El sitio tiene una sección de foto en el hero. Para poner la tuya:
+
+1. Guarda tu imagen en `assets/` con el nombre exacto **`profile.jpg`**
+   (recomendado: **cuadrada**, mínimo **400×400 px**, `.jpg` o `.png`).
+2. Súbela al repo:
+   ```bash
+   git add assets/profile.jpg && git commit -m "Add profile photo" && git push
+   ```
+3. Listo — la foto aparece automáticamente con un anillo animado.
+   Mientras no exista, se muestra un avatar con tus iniciales **JC**.
+
+> Si tu archivo es `.png`, cambia también el `src` en `index.html`
+> (`assets/profile.jpg` → `assets/profile.png`).
+
+---
+
+## 5. Personalización pendiente (TODO)
+
+- ✅ URL de LinkedIn ya configurada en todos los archivos.
 - 🎨 Los temas de los widgets usan `tokyonight`. Puedes cambiarlo por: `radical`, `dracula`, `gruvbox`, `merko`, etc.
 - 📊 Las estadísticas se llenan cuando el repo `juan9210` es público y tienes actividad pública.
 

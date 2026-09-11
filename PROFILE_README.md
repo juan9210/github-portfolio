@@ -133,8 +133,7 @@ idiomas:       [Español (nativo), Inglés (B2 → C1)]
 <!-- PRIVACIDAD: sin teléfono ni correo personal expuesto. Usa LinkedIn o un correo de contacto dedicado. -->
 <div align="center">
 
-  <!-- TODO: reemplaza con tu URL real de LinkedIn -->
-  <a href="https://www.linkedin.com/in/TU-USUARIO-LINKEDIN">
+  <a href="https://www.linkedin.com/in/juan-carlos-cardenas-539b7b216/">
     <img src="https://img.shields.io/badge/LinkedIn-Conectemos-0A66C2?logo=linkedin&logoColor=white&style=for-the-badge" />
   </a>
   <a href="https://github.com/juan9210">

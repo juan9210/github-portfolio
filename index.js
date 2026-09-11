@@ -279,6 +279,9 @@ document.addEventListener("DOMContentLoaded", () => {
       applyLang(btn.dataset.choose);
       langModal.hidden = true;
       document.body.style.overflow = "";
+      // El modal bloqueaba el scroll y el IntersectionObserver podía no
+      // disparar los .reveal del hero. Al cerrar, revelamos lo visible.
+      if (window.__revealNow) window.__revealNow();
     })
   );
 
@@ -334,24 +337,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* ---------- reveal on scroll ---------- */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        if (e.target.matches?.(".stat-card")) {
-          const n = e.target.querySelector(".stat-card__num[data-target]");
-          if (n) countUp(n);
-        }
-        if (e.target.matches?.(".bar")) {
-          e.target.querySelector("i").style.width = (e.target.dataset.level || 0) + "%";
-        }
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.18 });
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
   /* ---------- count up ---------- */
   function countUp(el) {
     if (el.dataset.done) return;
@@ -368,6 +353,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     requestAnimationFrame(tick);
   }
+
+  /* ---------- reveal a single element (runs its side effects) ---------- */
+  function activateReveal(el) {
+    el.classList.add("in");
+    if (el.matches?.(".stat-card")) {
+      const n = el.querySelector(".stat-card__num[data-target]");
+      if (n) countUp(n);
+    }
+    if (el.matches?.(".bar")) {
+      const i = el.querySelector("i");
+      if (i) i.style.width = (el.dataset.level || 0) + "%";
+    }
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        activateReveal(e.target);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  /* ---------- fail-safe: reveal everything currently in the viewport ---------- */
+  // El IntersectionObserver puede no disparar mientras el modal bloquea el scroll.
+  // Esta función revela de inmediato lo que ya está visible. La exponemos para
+  // llamarla al cerrar el modal de idioma.
+  window.__revealNow = function () {
+    document.querySelectorAll(".reveal:not(.in)").forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        activateReveal(el);
+        io.unobserve(el);
+      }
+    });
+  };
+  // Ejecuta una pasada inicial por si el observer tarda o el modal ya está cerrado.
+  requestAnimationFrame(() => window.__revealNow());
 
   /* ---------- active nav link on scroll ---------- */
   const sections = document.querySelectorAll("section[id]");

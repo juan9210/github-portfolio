@@ -274,16 +274,27 @@ document.addEventListener("DOMContentLoaded", () => {
     langModal.hidden = false;
     document.body.style.overflow = "hidden";
   }
-  langModal.querySelectorAll("[data-choose]").forEach(btn =>
-    btn.addEventListener("click", () => {
-      applyLang(btn.dataset.choose);
-      langModal.hidden = true;
-      document.body.style.overflow = "";
-      // El modal bloqueaba el scroll y el IntersectionObserver podía no
-      // disparar los .reveal del hero. Al cerrar, revelamos lo visible.
-      if (window.__revealNow) window.__revealNow();
-    })
-  );
+
+  function closeLangModal(lang) {
+    if (lang) applyLang(lang);
+    langModal.hidden = true;
+    document.body.style.overflow = "";
+    // El modal bloqueaba el scroll y el IntersectionObserver podía no
+    // disparar los .reveal del hero. Al cerrar, revelamos lo visible.
+    if (window.__revealNow) window.__revealNow();
+  }
+
+  // Clic en cualquiera de los botones de idioma (incluye clics en sus hijos)
+  langModal.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-choose]");
+    if (btn) { closeLangModal(btn.dataset.choose); return; }
+    // Clic en el fondo oscuro (fuera de la caja) -> cierra en idioma detectado
+    if (e.target === langModal) closeLangModal(currentLang);
+  });
+  // Tecla Escape como salida de emergencia
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !langModal.hidden) closeLangModal(currentLang);
+  });
 
   /* ---------- language switch (toggle) ---------- */
   document.getElementById("langSwitch").addEventListener("click", () => {

@@ -112,6 +112,9 @@ strong { color: var(--text); font-weight: 700; }
   background: rgba(4, 8, 18, .82); backdrop-filter: blur(8px);
   animation: fadeIn .35s ease;
 }
+/* Blindaje: el atributo `hidden` SIEMPRE oculta el modal, aunque otra
+   regla establezca display. Evita que el modal quede atascado encima. */
+.lang-modal[hidden] { display: none !important; }
 @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 .lang-modal__box {
   width: min(92%, 440px); text-align: center; padding: 2.6rem 2rem;

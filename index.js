@@ -205,8 +205,13 @@ const I18N = {
 let currentLang = "es";
 let typedTimer = null;
 
-/* ---------- apply a language ---------- */
-function applyLang(lang) {
+/* ---------- apply a language ----------
+   `persist` controla si guardamos la elección en localStorage.
+   En el arranque aplicamos el idioma SIN persistir, para no romper la
+   lógica de "primera visita" (que decide si mostrar el modal). Solo
+   guardamos cuando la persona elige/alterna el idioma explícitamente. */
+function applyLang(lang, persist = false) {
+  if (lang !== "es" && lang !== "en") lang = "es";
   currentLang = lang;
   const dict = I18N[lang];
 
@@ -224,7 +229,7 @@ function applyLang(lang) {
   const sw = document.getElementById("langSwitch");
   if (sw) sw.setAttribute("data-active", lang);
 
-  localStorage.setItem("lang", lang);
+  if (persist) localStorage.setItem("lang", lang);
 
   // restart typing with (same) phrases so it stays in sync
   restartTyping();
@@ -265,41 +270,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- language: modal on first visit ---------- */
   const langModal = document.getElementById("langModal");
+  // Leemos la elección guardada ANTES de aplicar idioma, porque applyLang
+  // ya no escribe en localStorage salvo que se lo pidamos explícitamente.
   const hasChosen = localStorage.getItem("lang");
 
-  // apply best-guess language immediately (no flash of wrong content)
-  applyLang(detectLang());
+  // apply best-guess language immediately (no flash of wrong content).
+  // Si ya había una elección guardada, la persistimos de nuevo (idempotente);
+  // si no, aplicamos el idioma detectado SIN guardar para no "falsear" la 1ª visita.
+  applyLang(detectLang(), Boolean(hasChosen));
 
-  if (!hasChosen) {
+  if (langModal && !hasChosen) {
     langModal.hidden = false;
     document.body.style.overflow = "hidden";
   }
 
   function closeLangModal(lang) {
-    if (lang) applyLang(lang);
-    langModal.hidden = true;
+    // Al cerrar el modal, la elección SÍ se persiste.
+    if (lang) applyLang(lang, true);
+    if (langModal) langModal.hidden = true;
+    // Blindaje: pase lo que pase, nunca dejamos el body bloqueado.
     document.body.style.overflow = "";
     // El modal bloqueaba el scroll y el IntersectionObserver podía no
     // disparar los .reveal del hero. Al cerrar, revelamos lo visible.
     if (window.__revealNow) window.__revealNow();
   }
 
-  // Clic en cualquiera de los botones de idioma (incluye clics en sus hijos)
-  langModal.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-choose]");
-    if (btn) { closeLangModal(btn.dataset.choose); return; }
-    // Clic en el fondo oscuro (fuera de la caja) -> cierra en idioma detectado
-    if (e.target === langModal) closeLangModal(currentLang);
-  });
-  // Tecla Escape como salida de emergencia
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !langModal.hidden) closeLangModal(currentLang);
-  });
+  if (langModal) {
+    // Clic en cualquiera de los botones de idioma (incluye clics en sus hijos)
+    langModal.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-choose]");
+      if (btn) { closeLangModal(btn.dataset.choose); return; }
+      // Clic en el fondo oscuro (fuera de la caja) -> cierra en idioma detectado
+      if (e.target === langModal) closeLangModal(currentLang);
+    });
+    // Tecla Escape como salida de emergencia
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !langModal.hidden) closeLangModal(currentLang);
+    });
+  }
 
   /* ---------- language switch (toggle) ---------- */
-  document.getElementById("langSwitch").addEventListener("click", () => {
-    applyLang(currentLang === "es" ? "en" : "es");
-  });
+  const langSwitch = document.getElementById("langSwitch");
+  if (langSwitch) {
+    langSwitch.addEventListener("click", () => {
+      applyLang(currentLang === "es" ? "en" : "es", true);
+    });
+  }
 
   /* ---------- mobile nav ---------- */
   const navToggle = document.getElementById("navToggle");

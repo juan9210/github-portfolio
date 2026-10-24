@@ -12,9 +12,12 @@ Este repositorio contiene **un sitio web** y dos README:
 
 ## 0. Publicar el SITIO WEB con GitHub Pages 🌐
 
+El repo incluye un workflow (`.github/workflows/deploy-pages.yml`) que publica el
+sitio automáticamente en cada push a `main`. Solo tienes que activarlo una vez:
+
 1. Ve al repo en GitHub: **Settings → Pages**.
-2. En **Source**, elige **Deploy from a branch**.
-3. Branch: `main` · Folder: `/ (root)` · guarda.
+2. En **Source**, elige **GitHub Actions**.
+3. Haz push a `main` (o ejecuta el workflow manualmente desde la pestaña **Actions**).
 4. Espera 1–2 minutos. Tu sitio quedará en:
    **https://juan9210.github.io/github-portfolio/**
 
@@ -96,7 +99,7 @@ serpiente del `PROFILE_README.md`.
 
 ---
 
-## 4. Subir tu FOTO de perfil 📸
+## 3. Subir tu FOTO de perfil 📸
 
 El sitio tiene una sección de foto en el hero. Para poner la tuya:
 
@@ -114,7 +117,7 @@ El sitio tiene una sección de foto en el hero. Para poner la tuya:
 
 ---
 
-## 5. Personalización pendiente (TODO)
+## 4. Personalización pendiente (TODO)
 
 - ✅ URL de LinkedIn ya configurada en todos los archivos.
 - 🎨 Los temas de los widgets usan `tokyonight`. Puedes cambiarlo por: `radical`, `dracula`, `gruvbox`, `merko`, etc.
